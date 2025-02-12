@@ -9,8 +9,10 @@ namespace Vonathalozat
     public class Utas
     {
         public bool helyjegy { get; set; }
-        public Utas(bool van_jegy)
+        public string cel_allomas { get; set; }
+        public Utas(string cel_allomas, bool van_jegy = true)
         {
+            this.cel_allomas = cel_allomas;
             this.helyjegy = van_jegy;
         }
 
