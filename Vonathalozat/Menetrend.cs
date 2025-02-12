@@ -17,10 +17,15 @@ namespace Vonathalozat
         public Menetrend(List<Allomas> Allomasok, List<Vonat> Vonatok, Dictionary<string, string> CelAllomasok, Dictionary<Pair, int> Tavolsagok)
         {
             this.Allomasok = Allomasok;
-            this.Vonatok = Vonatok;
             this.CelAllomasok = CelAllomasok;
             this.Tavolsagok = Tavolsagok;
 
+            foreach(Allomas allomas in Allomasok){
+                foreach(Vonat vonat in allomas.VarakozoVonatok)
+                {
+                    this.Vonatok.Add(vonat);
+                }
+            }
         }
     }
 }

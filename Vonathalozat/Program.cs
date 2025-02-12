@@ -10,7 +10,7 @@ namespace Vonathalozat
                 Allomasok: new List<Allomas>(){
                     new Allomas(
                         "Budapest-Keleti", 
-                        30, 
+                        40, 
                         5, 
                         VarakozoVonatok: new List<Vonat>()
                         {
@@ -23,8 +23,8 @@ namespace Vonathalozat
                                 250
                             ),
                             new Vonat(
-                                "S1122",
-                                150
+                                "EC174",
+                                400
                             ),
                             new Vonat(
                                 "Ex6243",
@@ -34,7 +34,7 @@ namespace Vonathalozat
                     ),
                     new Allomas(
                         "Budapest-Kelenföld",
-                        30,
+                        35,
                         5,
                         VarakozoVonatok: new List<Vonat>()
                         {
@@ -54,7 +54,7 @@ namespace Vonathalozat
                     ),
                     new Allomas(
                         "Debrecen Vasútállomás",
-                        12,
+                        20,
                         3,
                         VarakozoVonatok: new List<Vonat>()
                         {
@@ -70,7 +70,7 @@ namespace Vonathalozat
                     ),
                     new Allomas(
                         "Szolnok Vasútállomás",
-                        10,
+                        15,
                         2,
                         VarakozoVonatok: new List<Vonat>()
                         {
@@ -82,8 +82,8 @@ namespace Vonathalozat
                     ),
                     new Allomas(
                         "Miskolc Tiszai pályaudvar",
-                        7,
-                        3,
+                        30,
+                        4,
                         VarakozoVonatok: new List<Vonat>()
                         {
                             new Vonat(
@@ -98,7 +98,7 @@ namespace Vonathalozat
                     ),
                     new Allomas(
                         "Pécs vasútállomás",
-                        5,
+                        20,
                         2,
                         VarakozoVonatok: new List<Vonat>()
                         {
@@ -110,19 +110,72 @@ namespace Vonathalozat
                     ),
                     new Allomas(
                         "Szeged vasútállomás",
+                        12,
+                        3,
+                        VarakozoVonatok: new List<Vonat>()
+                        {
+                            new Vonat(
+                                "IC810",
+                                300
+                            ),
+                            new Vonat(
+                                "S2450",
+                                120
+                            )
+                        }
+                    ),
+                    new Allomas(
+                        "Kecskeméti Vasútállomás",
+                        4,
+                        2,
+                        VarakozoVonatok: new List<Vonat>()
+                        {
+                            new Vonat(
+                                "S1122",
+                                150
+                            )
+                        }
+                    ),
+                    new Allomas(
+                        "Székesfehérvári Vasútállomás",
                         6,
                         3,
                         VarakozoVonatok: new List<Vonat>()
                         {
                             new Vonat(
-                                ""
+                                "IC1042",
+                                300
                             )
                         }
-
+                    ),
+                    new Allomas(
+                        "Nyíregyháza",
+                        20,
+                        2,
+                        VarakozoVonatok: new List<Vonat>()
+                        {
+                            new Vonat(
+                                "S9110",
+                                100
+                            )
+                        }
+                    ),
+                    new Allomas(
+                        "Győr",
+                        40,
+                        3,
+                        VarakozoVonatok: new List<Vonat>()
+                        {
+                            new Vonat(
+                                "S4043",
+                                150
+                            ),
+                            new Vonat(
+                                "IC714",
+                                350
+                            )
+                        }
                     )
-                },
-                Vonatok: new List<Vonat>(){
-
                 },
                 CelAllomasok: new Dictionary<string, string>(){
 
