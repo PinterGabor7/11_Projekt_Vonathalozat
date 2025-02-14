@@ -27,7 +27,7 @@ namespace Vonathalozat
                                 400
                             ),
                             new Vonat(
-                                "Ex6243",
+                                "EX6243",
                                 200
                             ),
                         }
@@ -59,7 +59,7 @@ namespace Vonathalozat
                         VarakozoVonatok: new List<Vonat>()
                         {
                             new Vonat(
-                                "Ex2204",
+                                "EX2204",
                                 200
                             ),
                             new Vonat(
@@ -81,7 +81,7 @@ namespace Vonathalozat
                         }
                     ),
                     new Allomas(
-                        "Miskolc Tiszai pályaudvar",
+                        "Miskolc Vasútállomás",
                         30,
                         4,
                         VarakozoVonatok: new List<Vonat>()
@@ -125,7 +125,7 @@ namespace Vonathalozat
                         }
                     ),
                     new Allomas(
-                        "Kecskeméti Vasútállomás",
+                        "Kecskemét Vasútállomás",
                         4,
                         2,
                         VarakozoVonatok: new List<Vonat>()
@@ -137,7 +137,7 @@ namespace Vonathalozat
                         }
                     ),
                     new Allomas(
-                        "Székesfehérvári Vasútállomás",
+                        "Székesfehérvár Vasútállomás",
                         6,
                         3,
                         VarakozoVonatok: new List<Vonat>()
@@ -149,7 +149,7 @@ namespace Vonathalozat
                         }
                     ),
                     new Allomas(
-                        "Nyíregyháza",
+                        "Nyíregyháza Vasútállomás",
                         20,
                         2,
                         VarakozoVonatok: new List<Vonat>()
@@ -161,7 +161,7 @@ namespace Vonathalozat
                         }
                     ),
                     new Allomas(
-                        "Győr",
+                        "Győr Vasútállomás",
                         40,
                         3,
                         VarakozoVonatok: new List<Vonat>()
@@ -178,12 +178,52 @@ namespace Vonathalozat
                     )
                 },
                 CelAllomasok: new Dictionary<string, string>(){
-
+                    {"IC1604", "Debrecen Vasútállomás" },
+                    {"G3406", "Győr Vasútállomás" },
+                    {"EC174", "Pécs Vasútállomás" },
+                    {"EX6243", "Székesfehérvár Vasútállomás" },
+                    {"IC5401", "Pécs Vasútállomás" },
+                    {"G8812", "Miskolc Vasútállomás"},
+                    {"S1746", "Szolnok Vasútállomás"},
+                    {"EX2204", "Győr Vasútállomás" },
+                    {"IC5619", "Pécs Vasútállomás"},
+                    {"M4535", "Miskolc Vasútállomás"},
+                    {"IC9201", "Nyíregyháza Vasútállomás"},
+                    {"RE1001", "Szeged Vasútállomás"},
+                    {"S401", "Budapest-Keleti"},
+                    {"IC810", "Budapest-Kelenföld"},
+                    {"S2450", "Kecskemét Vasútállomás"},
+                    {"S1122", "Budapest-Keleti"},
+                    {"IC1042", "Budapest-Kelenföld"},
+                    {"S9110", "Székesfehérvár Vasútállomás"},
+                    {"S4043", "Budapest-Keleti"},
+                    {"IC714", "Debrecen Vasútállomás"}
                 },
                 Tavolsagok: new Dictionary<Pair, int>(){
+                    {new Pair("Győr Vasútállomás", "Budapest-Keleti"), 100},
+                    {new Pair("Győr Vasútállomás", "Pécs Vasútállomás"), 180},
+                    {new Pair("Budapest-Keleti", "Miskolc Vasútállomás"), 150},
+                    {new Pair("Budapest-Keleti", "Budapest-Kelenföld"), 15},
+                    {new Pair("Budapest-Keleti", "Debrecen Vasútállomás"), 150},
+                    {new Pair("Budapest-Keleti", "Nyíregyháza Vasútállomás"), 210},
+                    {new Pair("Budapest-Kelenföld", "Pécs Vasútállomás"), 150},
+                    {new Pair("Budapest-Kelenföld", "Szeged Vasútállomás"), 150},
+                    {new Pair("Budapest-Kelenföld", "Kecskemét Vasútállomás"), 90},
+                    {new Pair("Debrecen Vasútállomás", "Miskolc Vasútállomás"), 90},
+                    {new Pair("Debrecen Vasútállomás", "Szolnok Vasútállomás"), 120},
+                    {new Pair("Szolnok Vasútállomás", "Szeged Vasútállomás"), 210},
+                    {new Pair("Szolnok Vasútállomás", "Pécs Vasútállomás"), 270},
+                    {new Pair("Szolnok Vasútállomás", "Kecskemét Vasútállomás"), 60},
+                    {new Pair("Miskolc Vasútállomás", "Nyíregyháza Vasútállomás"), 90},
+                    {new Pair("Miskolc Vasútállomás", "Szeged Vasútállomás"), 200},
+                    {new Pair("Pécs Vasútállomás", "Székesfehérvár Vasútállomás"), 240},
+                    {new Pair("Szeged Vasútállomás", "Nyíregyháza Vasútállomás"), 240},
+
 
                 }
             );
+
+           // Console.WriteLine(menetrend.Tavolsagok[new Pair("Győr", "Debrecen")]);
             /*char choice = ' ';
             while (choice != '0')
             {
