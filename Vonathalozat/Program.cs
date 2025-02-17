@@ -223,7 +223,13 @@ namespace Vonathalozat
                 }
             );
 
-           // Console.WriteLine(menetrend.Tavolsagok[new Pair("Győr", "Debrecen")]);
+            Console.WriteLine(menetrend.Tavolsagok[new Pair("Győr Vasútállomás", "Budapest-Kelenföld")]);
+
+            //Console.WriteLine(menetrend.Tavolsagok.ContainsKey(new Pair("Győr Vasútállomás", "Budapest-Keleti")));
+
+            //Console.WriteLine(menetrend.Tavolsagok[new Pair("Győr Vasútállomás", "Budapest-Keleti")]);
+
+            // Console.WriteLine(menetrend.Tavolsagok[new Pair("Győr", "Debrecen")]);
             /*char choice = ' ';
             while (choice != '0')
             {

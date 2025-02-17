@@ -27,31 +27,48 @@ namespace Vonathalozat
                 }
             }
 
-            Console.WriteLine(Vonatok.Count);
 
             TavolsagokFeltoltese();
         }
 
         public void TavolsagokFeltoltese()
         {
-            foreach (Vonat vonatk in Vonatok)
+            foreach (Allomas allomask in Allomasok)
             {
-                foreach (Vonat vonat1 in Vonatok)
+                foreach (Allomas allomas1 in Allomasok)
                 {
-                    foreach(Vonat vonat2 in Vonatok)
+                    foreach (Allomas allomas2 in Allomasok)
                     {
-                        if (vonat1.jaratszam == vonat2.jaratszam) continue;
-                        string k = vonatk.jaratszam;
-                        string a = vonat1.jaratszam;
-                        string b = vonat2.jaratszam;
+
+                        string k = allomask.allomas_nev;
+                        string a = allomas1.allomas_nev;
+                        string b = allomas2.allomas_nev;
+
+                        if (b == a) continue;
+                        if (a == k)
+                        {
+                            Tavolsagok[new Pair(a, k)] = 0;
+                            Tavolsagok[new Pair(k, a)] = 0;
+                        }
+                        if(b == k)
+                        {
+                            Tavolsagok[new Pair(b, k)] = 0;
+                            Tavolsagok[new Pair(k, b)] = 0;
+                        }
 
 
-                        if(!Tavolsagok.ContainsKey(new Pair(a, k)) && !Tavolsagok.ContainsKey(new Pair(k, a))) continue;
+
+                        if (!Tavolsagok.ContainsKey(new Pair(a, k)) && !Tavolsagok.ContainsKey(new Pair(k, a))) continue;
                         if(!Tavolsagok.ContainsKey(new Pair(b, k)) && !Tavolsagok.ContainsKey(new Pair(k, b))) continue;
-                        if(!Tavolsagok.ContainsKey(new Pair(a, k))) Tavolsagok[new Pair(a, k)] = Tavolsagok[new Pair(k, a)];
-                        if(!Tavolsagok.ContainsKey(new Pair(b, k))) Tavolsagok[new Pair(b, k)] = Tavolsagok[new Pair(k, b)];
-                        if(!Tavolsagok.ContainsKey(new Pair(a, b))) Tavolsagok[new Pair(a, b)] = Tavolsagok[new Pair(b, a)];
-                        if(!Tavolsagok.ContainsKey(new Pair(a, b)))
+                        if(!Tavolsagok.ContainsKey(new Pair(a, k))) Tavolsagok.Add(new Pair(a, k), Tavolsagok[new Pair(k, a)]);
+                        if(!Tavolsagok.ContainsKey(new Pair(b, k))) Tavolsagok.Add(new Pair(b, k), Tavolsagok[new Pair(k, b)]);
+                        if (!Tavolsagok.ContainsKey(new Pair(k, a))) Tavolsagok.Add(new Pair(k, a), Tavolsagok[new Pair(a, k)]);
+                        if (!Tavolsagok.ContainsKey(new Pair(k, b))) Tavolsagok.Add(new Pair(k, b), Tavolsagok[new Pair(b, k)]);
+
+                        if (!Tavolsagok.ContainsKey(new Pair(b, a)) && Tavolsagok.ContainsKey(new Pair(a, b))) Tavolsagok.Add(new Pair(b, a), Tavolsagok[new Pair(a, b)]);
+                        if (Tavolsagok.ContainsKey(new Pair(b, a)) && !Tavolsagok.ContainsKey(new Pair(a, b))) Tavolsagok.Add(new Pair(a, b), Tavolsagok[new Pair(b, a)]);
+
+                        if (!Tavolsagok.ContainsKey(new Pair(a, b)) && !Tavolsagok.ContainsKey(new Pair(b, a)))
                         {
                             Tavolsagok.Add(new Pair(a, b), Tavolsagok[new Pair(a, k)] + Tavolsagok[new Pair(k, b)]);
                             Tavolsagok.Add(new Pair(b, a), Tavolsagok[new Pair(a, k)] + Tavolsagok[new Pair(k, b)]);
@@ -61,7 +78,7 @@ namespace Vonathalozat
                             Tavolsagok[new Pair(a, b)] = Tavolsagok[new Pair(a, k)] + Tavolsagok[new Pair(k, b)];
                             Tavolsagok[new Pair(b, a)] = Tavolsagok[new Pair(a, b)];
                         }
-                        Console.WriteLine($"{a}     {b}");
+
                     }
                 }
             }

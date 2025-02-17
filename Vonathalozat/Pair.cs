@@ -13,8 +13,22 @@ namespace Vonathalozat
 
         public Pair(string allomas1, string allomas2)
         {
-            Allomas1 = allomas1;
-            Allomas2 = allomas2;
+            this.Allomas1 = allomas1;
+            this.Allomas2 = allomas2;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Pair other)
+            {
+                return Allomas1 == other.Allomas1 && Allomas2 == other.Allomas2;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Allomas1, Allomas2);
         }
     }
 }
