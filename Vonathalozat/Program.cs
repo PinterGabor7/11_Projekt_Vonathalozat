@@ -223,7 +223,10 @@ namespace Vonathalozat
                 }
             );
 
-            Console.WriteLine(menetrend.Tavolsagok[new Pair("Győr Vasútállomás", "Budapest-Kelenföld")]);
+            foreach(Allomas a in menetrend.Utvonalak[new Pair("Győr Vasútállomás", "Budapest-Kelenföld")])
+            {
+                Console.WriteLine(a.allomas_nev);
+            }
 
             //Console.WriteLine(menetrend.Tavolsagok.ContainsKey(new Pair("Győr Vasútállomás", "Budapest-Keleti")));
 

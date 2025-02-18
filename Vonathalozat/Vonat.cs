@@ -11,6 +11,8 @@ namespace Vonathalozat
         public string jaratszam {  get; set; }
         public int ures_helyek {  get; set; }
         public List<Utas> Utasok { get; set; }
+        public Allomas KovetkezoAllomas { get; set; }
+        public int erkezes { get; set; }
         public Vonat(string jaratszam, int ures_helyek = 0, List<Utas> Utasok = null)
         {
             this.jaratszam = jaratszam;
