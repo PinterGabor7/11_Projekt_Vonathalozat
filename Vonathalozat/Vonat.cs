@@ -10,21 +10,16 @@ namespace Vonathalozat
     {
         public string jaratszam {  get; set; }
         public int ures_helyek {  get; set; }
-        public List<Utas> Utasok { get; set; }
+        public int utasok { get; set; }
         public Allomas KovetkezoAllomas { get; set; }
+        public Allomas JelenlegiAllomas { get; set; }
+        public Allomas ElozoAllomas { get; set; }
         public int erkezes { get; set; }
-        public Vonat(string jaratszam, int ures_helyek = 0, List<Utas> Utasok = null)
+        public Vonat(string jaratszam, int ures_helyek = 0, int utasok = 0)
         {
             this.jaratszam = jaratszam;
             this.ures_helyek = ures_helyek;
-            if(Utasok == null)
-            {
-                this.Utasok = new List<Utas>();
-            }
-            else
-            {
-                this.Utasok = Utasok;
-            }
+            this.utasok = utasok;
         }
     }
 }

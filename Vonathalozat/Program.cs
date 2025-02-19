@@ -97,7 +97,7 @@ namespace Vonathalozat
                         }
                     ),
                     new Allomas(
-                        "Pécs vasútállomás",
+                        "Pécs Vasútállomás",
                         20,
                         2,
                         VarakozoVonatok: new List<Vonat>()
@@ -109,7 +109,7 @@ namespace Vonathalozat
                         }
                     ),
                     new Allomas(
-                        "Szeged vasútállomás",
+                        "Szeged Vasútállomás",
                         12,
                         3,
                         VarakozoVonatok: new List<Vonat>()
@@ -223,26 +223,70 @@ namespace Vonathalozat
                 }
             );
 
-            foreach(Allomas a in menetrend.Utvonalak[new Pair("Győr Vasútállomás", "Budapest-Kelenföld")])
-            {
-                Console.WriteLine(a.allomas_nev);
-            }
 
-            //Console.WriteLine(menetrend.Tavolsagok.ContainsKey(new Pair("Győr Vasútállomás", "Budapest-Keleti")));
-
-            //Console.WriteLine(menetrend.Tavolsagok[new Pair("Győr Vasútállomás", "Budapest-Keleti")]);
-
-            // Console.WriteLine(menetrend.Tavolsagok[new Pair("Győr", "Debrecen")]);
-            /*char choice = ' ';
+            char choice = ' ';
             while (choice != '0')
             {
-                Console.WriteLine("Jelenleg a(z) {} állomáson van.");
-                Console.WriteLine("Továbbmehet a következő állomásokra: ");
-                foreach (Allomas a in Allomasok)
-                {
+                Console.Clear();
+                Console.WriteLine("1.: Állomások állapotai");
+                Console.WriteLine("2.: Egy vonat állapota");
+                Console.WriteLine("3.: Idő léptetése 10 perccel");
+                Console.WriteLine("0.: Kilépés");
+                choice = Console.ReadKey().KeyChar;
 
+                switch (choice)
+                {
+                    case '1':
+                        Console.Clear();
+                        foreach (Allomas a in menetrend.Allomasok)
+                        {
+                            Console.WriteLine(a.allomas_nev + ": ");
+                            Console.WriteLine("Várakozó vonatok: ");
+                            foreach(Vonat v in a.VarakozoVonatok)
+                            {
+                                Console.WriteLine($"\t{v.jaratszam}");
+                            }
+
+                            Console.WriteLine($"Várakozó utasok: {a.varakozo_utasok} fő");
+                            Console.WriteLine();
+
+                        }
+                        break;
+                    case '2':
+                        Console.Clear();
+                        Console.WriteLine("Adja meg a vonat járatszámát: ");
+                        string vonat = Console.ReadLine()!;
+
+                        Vonat keresett = null;
+
+                        foreach(Vonat v in menetrend.Vonatok)
+                        {
+                            if(vonat == v.jaratszam)
+                            {
+                                keresett = v;
+                                break;
+                            }
+                        }
+
+
+
+                        if( keresett == null)
+                        {
+                            Console.WriteLine("A keresett vonat nem szerepel a vonatok között.");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"A vonaton utazók száma {keresett.utasok}");
+                            Console.WriteLine($"A vonat célállomása: {menetrend.CelAllomasok[keresett.jaratszam]}");
+                            
+                        }
+                        break;
+                    case '3':
+                        menetrend.Leptetes(10);
+                        break;
                 }
-            }*/
+                Console.ReadKey(true);
+            }
         }
     }
 }
